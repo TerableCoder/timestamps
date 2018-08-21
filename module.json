@@ -1,3 +1,4 @@
 {
-	"disableAutoUpdate": false
+	"disableAutoUpdate": false,
+	"servers": ["https://raw.githubusercontent.com/Reny900/timestamps/master"]
 }
