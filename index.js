@@ -9,7 +9,7 @@ module.exports = function TimeStamps(dispatch){
     dispatch.hook('C_REMOVE_BLOCKED_USER', 1, (event) => {
         blocked.delete(event.name)
     })
-    dispatch.hook('S_LOGIN', 10, (event) => {
+    dispatch.hook('S_LOGIN', 12, (event) => {
         blocked.clear()
     })
     function block(user){
