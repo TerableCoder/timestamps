@@ -17,14 +17,13 @@ module.exports = function TimeStamps(dispatch){
     }
     function processChatEvent(event){
         if(event.channel && event.channel === 26) return;
-        if(blocked.has(event.authorName)) return false;
+        if(blocked.has(event.name)) return false;
         var time = new Date();
         var timeStr = ("0" + time.getHours()).slice(-2) + ":" + ("0" + time.getMinutes()).slice(-2);
-        if(event.channel) event.authorName = `</a>${timeStr}][<a href='asfunction:chatNameAction,${event.authorName}@0@0'>${event.authorName}</a>`;
+        if(event.channel) event.name = `</a>${timeStr}][<a href='asfunction:chatNameAction,${event.name}@0@0'>${event.name}</a>`;
 		else event.message = `[${timeStr}]: ` + event.message;
         return true;
     }
-    dispatch.hook('S_CHAT', 2, processChatEvent);
-    dispatch.hook('S_PRIVATE_CHAT', 1, processChatEvent);
-    dispatch.hook('S_WHISPER', 2, processChatEvent);
+    dispatch.hook('S_CHAT', 3, processChatEvent);
+    dispatch.hook('S_WHISPER', 3, processChatEvent);
 }
